@@ -82,7 +82,7 @@
     p))
   d))
 
-(define (getalive p)
+(ndefine (getalive p)
  (getvalue 'alive p))
 
 (define (showproto p)
