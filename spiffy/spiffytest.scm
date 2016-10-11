@@ -1,8 +1,9 @@
 (use spiffy intarweb uri-common)
+(require-extension regex)
 
 (define (rst) (load "spiffytest.scm"))
 
-(define (index name) (string-append 
+(define (index) (string-append 
 			"<!doctype html>"
 			"<html lang=\"en\">"
 			"<head>"
@@ -13,7 +14,7 @@
 			"</head>"  
 			"<body>"
 			"<header>"
-			name " is the best!"
+			"chicken is the best!"
 			"</header>"
 			"<div>"
 			"I mean, for real its super awesome."
@@ -21,16 +22,40 @@
 			"</body>"  
 			"</html>"))
 
+(define (secret-index name) (string-append 
+			"<!doctype html>"
+			"<html lang=\"en\">"
+			"<head>"
+			"<meta charset=\"utf-8\">"
+			"<title>Chicken Secret</title>" 
+			"<meta name=\"author\" content=\"Chicken\">"  
+			"<link rel=\"stylesheet\" href=\"css/styles.css?v=1.0\">"  
+			"</head>"  
+			"<body>"
+			"<header>"
+			name " is the secret!"
+			"</header>"
+			"<div>"
+			"I mean, for real its super secret."
+			"</div>"
+			"</body>"  
+			"</html>"))
+
+
 ;; the let* binding makes defined variables
 ;; available in the same let binding (so uri can be
 ;; used in th equal? statement)
-(define (handle-greeting continue)
+(define (handle continue)
  (let* ((uri (request-uri (current-request))))
-  (if (equal? (uri-path uri) '(/ "greeting" name))
-   (send-response status: 'ok body: (index name))
-   (continue))))
+  (if (equal? (uri-path uri) '(/ "greeting"))
+   (begin
+    (send-response status: 'ok body: (index))
+    (print uri))
+  (if (equal? (uri-path uri) '(/ "secret"))
+   (send-response status: 'ok body: (secret-index (cdr (uri-query uri))))
+   (continue)))))
 
-(vhost-map `(("localhost" . ,handle-greeting)))
+(vhost-map `(("3.20.165.59" . ,handle)))
 
 
 
