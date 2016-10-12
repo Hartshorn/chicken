@@ -1,5 +1,4 @@
 (use spiffy intarweb uri-common)
-(require-extension regex)
 
 (define (rst) (load "spiffytest.scm"))
 
@@ -41,21 +40,35 @@
 			"</body>"  
 			"</html>"))
 
+(define (handle-greeting uri)
+ (begin
+  (send-response status: 'ok body: (index))
+  (print uri)))
 
-;; the let* binding makes defined variables
-;; available in the same let binding (so uri can be
-;; used in th equal? statement)
+(define (handle-secret uri) 
+ (begin
+  (let* ((name (cdar (uri-query uri))))
+   (send-response status: 'ok body: (secret-index name))
+   (print uri))))
+
+(define (useful-info)
+ (begin
+  (printf "Request from: ")
+  (print (remote-address))
+  (printf "Secure connection: ")
+  (print (secure-connection?))))
+
 (define (handle continue)
- (let* ((uri (request-uri (current-request))))
+ (useful-info)
+ (let* ((req (current-request))
+	(uri (request-uri req)))
   (if (equal? (uri-path uri) '(/ "greeting"))
-   (begin
-    (send-response status: 'ok body: (index))
-    (print uri))
+   (handle-greeting uri)
   (if (equal? (uri-path uri) '(/ "secret"))
-   (send-response status: 'ok body: (secret-index (drop (uri-query uri) 1)))
-   (continue)))))
+   (handle-secret uri)
+  (continue)))))
 
-(vhost-map `(("localhost" . ,handle)))
+(vhost-map `(("3.20.161.45" . ,handle)))
 
 
 
