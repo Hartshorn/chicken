@@ -33,7 +33,7 @@
 			"</head>"  
 			"<body>"
 			"<header>"
-			name " is the secret!"
+			(->string name) " is the secret!"
 			"</header>"
 			"<div>"
 			"I mean, for real its super secret."
@@ -52,10 +52,10 @@
     (send-response status: 'ok body: (index))
     (print uri))
   (if (equal? (uri-path uri) '(/ "secret"))
-   (send-response status: 'ok body: (secret-index (cdr (uri-query uri))))
+   (send-response status: 'ok body: (secret-index (drop (uri-query uri) 1)))
    (continue)))))
 
-(vhost-map `(("3.20.165.59" . ,handle)))
+(vhost-map `(("localhost" . ,handle)))
 
 
 
