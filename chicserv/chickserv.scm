@@ -1,6 +1,6 @@
 (use spiffy intarweb uri-common)
 
-(load "src/server/serverfunctions.scm")
+(load "src/server/serverfuncs.scm")
 
 
 (define (handle continue)

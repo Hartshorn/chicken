@@ -1,4 +1,4 @@
-(load "../frame/frames.scm")
+(load "src/frame/frames.scm")
 
 (define (handle-greeting uri)
  (begin
@@ -7,9 +7,9 @@
 
 (define (handle-secret uri) 
  (begin
-  (let* ((name (cdar (uri-query uri))))
-   (send-response status: 'ok body: (secret-index name))
-   (print uri))))
+  (let ((name (cdar (uri-query uri))))
+   (send-response status: 'ok body: (secret-index name)))
+  (print uri)))
 
 (define (useful-info)
  (begin
