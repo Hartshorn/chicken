@@ -1,0 +1,62 @@
+/**
+ * id = #
+ * class = .
+ */
+
+html {
+	font-size: 62.5%;
+}
+
+
+body {
+	font-size: 1.5em;
+	line-height: 1.6;
+	font-weight: 400;
+	font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", 
+		     Helvetica, Arial, sans-serif;
+	color: #222;
+}
+
+p {
+	margin-top: 0;
+}
+
+/* change colors when hovering over links */
+a {
+	color: #1EAEDB; }
+a:hover {
+	color: #0FA0CE; }
+
+#div1 {
+	color: red;
+}
+
+.leftnav {
+	border: 10px;
+}
+
+.rightnav {
+	border: 100px;
+}
+
+/* utilities */
+.u-full-width {
+	width: 100%;
+	box-sizing: border-box; }
+.u-max-full-width {
+	max-width: 100%;
+	box-sizing: border-box; }
+.u-pull-right {
+	float: right; }
+.u-pull-left {
+	float: left;
+}
+
+/* clearing */
+.container:after,
+.row:after,
+.u-cf {
+	content: "";
+	display: table;
+	clear: both;
+}

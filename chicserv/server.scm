@@ -1,5 +1,6 @@
 (use spiffy intarweb uri-common)
-	(load "spiffyfunctions.scm")
+
+(load "src/server/serverfunctions.scm")
 
 
 (define (handle continue)
@@ -10,10 +11,13 @@
    (handle-greeting uri)
   (if (equal? (uri-path uri) '(/ "secret"))
    (handle-secret uri)
-  (continue)))))
+  (begin
+   (print "callback request from browser:")
+   (print uri)
+   (continue))))))
 
 ;; change this for the environment
-(vhost-map `(("localhost" . ,handle)))
+(vhost-map `(("3.20.165.128" . ,handle)))
 
 
 

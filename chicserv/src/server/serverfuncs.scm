@@ -1,6 +1,4 @@
-(load "spiffyframe.scm")
-
-(define (rst) (load "spiffytest.scm"))
+(load "../frame/frames.scm")
 
 (define (handle-greeting uri)
  (begin
