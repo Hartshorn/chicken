@@ -103,10 +103,12 @@
  (element->add (table-data) content))
 
 (define (make-header-list header)
- (map add-header header))
+ (apply string-append
+  (map add-header header)))
 
 (define (make-data-list data)
- (map add-data data))
+ (apply string-append
+  (map add-data data)))
 
 
 

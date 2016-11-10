@@ -23,24 +23,18 @@
  (let* ((doc (doc))
 	(h (head title: "ChickServ"))
 	(b (body))
-	(th1 (element->add 
-	      (table-header) 
-	      "header"))
-	(th2 (element->add 
-	      (table-header) 
-	      "header"))
-	(th3 (element->add 
-	      (table-header) 
-	      "header"))
+	(th1 "Column 1")
+	(th2 "Column 2")
+	(th3 "Column 3")
 	(d1 (element->add 
 	     (div id: "div" class: "u-pull-right rightnav")
 	     "Chicken is so great!"))
 	(d2 (element->add 
 	     (div id: "div" class: "u-full-width")
-	     "Chicken is so great!"))
+	     "Great because"))
 	(d3 (element->add 
 	     (div id: "div" class: "u-pull-left leftnav")
-	     "Chicken is so great!"))
+	     "it is so simple..."))
 	(table (make-table (list th1 th2 th3) (list d1 d2 d3))))
   (string-append
    (car doc)
@@ -49,3 +43,4 @@
    table
    (cdr b)
    (cdr doc))))
+

@@ -2,6 +2,8 @@
 
 (load "src/server/serverfuncs.scm")
 
+(define (rl) (load "src/server/serverfuncs.scm"))
+
 
 (define (handle continue)
  (useful-info)
@@ -17,7 +19,7 @@
    (continue))))))
 
 ;; change this for the environment
-(vhost-map `(("3.20.165.128" . ,handle)))
+(vhost-map `(("localhost" . ,handle)))
 
 
 
