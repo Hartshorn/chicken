@@ -13,13 +13,15 @@
 		    (meta-name "")
 		    (meta-content "")
 		    (link-rel "\"stylesheet\"")
-		    (link-href "\"css/styles.css?v=1.0\""))
+		    (link-href "\"css/styles.css?v=1.0\"")
+		    (link-script "\"scripts/chickserv.js\""))
  (string-append
   "<head>"
   "<meta charset=" charset ">"
   "<title>" title "</title>"
   "<meta name=" meta-name "content=" meta-content ">"
   "<link rel=" link-rel "href=" link-href ">"
+  "<script src=" link-script "></script>"
   "</head>"))
 
 (define (body)
@@ -111,5 +113,31 @@
   (map add-data data)))
 
 
-
+(define (text-area #!key (rows "4") (cols "50") (id "textarea") (class "default"))
+ (cons
+  (string-append
+   "<textarea rows=\""
+   (->string rows)
+   " cols=\""
+   (->string cols)
+   " id=\""
+   (->string id)
+   "\""
+   " class=\""
+   (->string class)
+   " placeholder=\"Editor\""
+   ">")
+  "</textarea>"))
+   
+(define (button #!key (id "default") (class "button") (onclick "test()"))
+ (cons
+  (string-append
+   "<button type=\"button\" value=\"test\" id=\""
+   (->string id)
+   "\" class=\""
+   (->string class)
+   "\" onclick=\""
+   (->string onclick)
+   "\">")
+  "</button>"))
 

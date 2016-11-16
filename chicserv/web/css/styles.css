@@ -3,12 +3,9 @@
  * class = .
  */
 
-html {
-	font-size: 62.5%;
-}
-
 
 body {
+	background-color: black;
 	font-size: 1.5em;
 	line-height: 1.6;
 	font-weight: 400;
@@ -17,26 +14,10 @@ body {
 	color: #222;
 }
 
-p {
-	margin-top: 0;
-}
-
-/* change colors when hovering over links */
-a {
-	color: #1EAEDB; }
-a:hover {
-	color: #0FA0CE; }
-
 div {
-	color: red;
-}
-
-.leftnav {
-	border: 10px;
-}
-
-.rightnav {
-	border: 100px;
+	color: black;
+	float: left;
+	/*box-shadow: 5px 5px 5px .1px #6B6B6B; */
 }
 
 /* utilities */
@@ -64,15 +45,64 @@ div {
 
 /* tables */
 th, td {
-	padding: 12px 15px;
-	text-align: left;
-	border-bottom: 1px solid #E1E1E1;
+	border: none;
+	background-color: black;
+	padding: 0;
+	text-align: center;
 }
 
-th:first-child, td:first-child {
-	padding-left: 0;
+.button {
+	outline: none;
+	padding: 10px;
+	border-radius: 1px;
+	min-width: 80px;
+	width: auto;
+	border: none;
+	color: white;
+	background-color: black;
+	float: left;
+	transition-duration: 0.4s;
 }
 
-th:last-child, td:last-child {
-	padding-right: 0;
+.button:hover, .button:focus {
+	color: green;
+}
+
+
+#navigation {
+	background: black;
+	color: grey;
+	min-height: 860px;
+	min-width: 100px;
+}
+
+.textarea {
+	padding: 20px;
+	outline: none;
+	border: none;
+	color: grey;
+	background: #2a2a2a;
+	width: auto;
+	min-height: 860px;
+	min-width: 1200px;
+	resize: none;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #b46868;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #b46868;
+}
+
+::-webkit-scrollbar-button {
+	background-color: #b46868;
+}
+
+::-webkit-scrollbar-corner {
+	background-color: #b46868;
 }

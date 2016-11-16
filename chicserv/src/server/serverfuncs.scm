@@ -1,9 +1,9 @@
 (load "src/frame/frames.scm")
 
-(define (handle-greeting uri)
+(define (handle-editor uri)
  (begin
-  (send-response status: 'ok body: (index))
-  (print uri)))
+  (send-response status: 'ok body: (editor))
+  (print uri)))	
 
 (define (handle-secret uri) 
  (begin
@@ -14,8 +14,6 @@
 (define (useful-info)
  (begin
   (printf "Request from: ")
-  (print (remote-address))
-  (printf "Secure connection: ")
-  (print (secure-connection?))))
+  (print (remote-address))))
  
 
