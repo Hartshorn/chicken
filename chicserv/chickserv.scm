@@ -21,7 +21,7 @@
    (continue)))))))
 
 ;; change this for the environment
-(vhost-map `(("3.20.164.52" . ,handle)))
+(vhost-map `(("localhost" . ,handle)))
 
 
 

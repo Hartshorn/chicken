@@ -8,7 +8,7 @@
    "<html>")
   "</html>"))
 
-(define (head #!key (charset "\"utf-8\"")
+(define (header #!key (charset "\"utf-8\"")
 		    (title "")
 		    (meta-name "")
 		    (meta-content "")
@@ -29,64 +29,41 @@
   "<body>"
   "</body>"))
 
-(define (div #!key (id "default") (class "default"))
+(define (element name  #!key (id "default") (class "default"))
  (cons
   (string-append
-   "<div id=\"" 
-   (->string id) 
-   "\""
-   " class=\""
+   "<"
+   (->string name)
+   " id=\""
+   (->string id)
+   "\" class=\""
    (->string class)
    "\">")
-  "</div>"))
+  (string-append
+   "</"
+   (->string name)
+   ">")))
 
 (define (element->add element content) 
- (string-append (car element) (->string content) (cdr element)))
+ (string-append 
+  (car element) 
+  (->string content) 
+  (cdr element)))
 
+(define (div #!key (id "") (class ""))
+ (element "div" id: id class: class))
 
 (define (table #!key (id "") (class ""))
- (cons
-  (string-append
-   "<table id=\""
-   (->string id)
-   "\""
-   " class=\""
-   (->string class)
-   "\">")
-  "</table>"))
+ (element "table" id: id class: class))
 
 (define (table-row #!key (id "") (class ""))
- (cons
-  (string-append
-   "<tr id=\""
-   (->string id)
-   "\""
-   " class=\""
-   (->string class)
-   "\">")
-  "</tr>"))
+ (element "tr" id: id  class: class))
 
 (define (table-header #!key (id "") (class ""))
- (cons
-  (string-append
-   "<th id=\""
-   (->string id)
-   "\""
-   " class=\""
-   (->string class)
-   "\">")
-  "</th>"))
+ (element "th" id: id class: class))
 
 (define (table-data #!key (id "") (class ""))
- (cons
-  (string-append
-   "<td id=\""
-   (->string id)
-   "\""
-   " class=\""
-   (->string class)
-   "\">")
-  "</td>"))
+ (element "td" id: id class: class))
 
 (define (make-table header data)
  (let* ((table (table))

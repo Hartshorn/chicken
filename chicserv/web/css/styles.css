@@ -4,9 +4,9 @@
  */
 
 
-body {
+body, button, textarea {
 	background-color: black;
-	font-size: 1.5em;
+	font-size: 1.1em;
 	line-height: 1.6;
 	font-weight: 400;
 	font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", 
@@ -31,15 +31,6 @@ div {
 	float: right; }
 .u-pull-left {
 	float: left;
-}
-
-/* clearing */
-.container:after,
-.row:after,
-.u-cf {
-	content: "";
-	display: table;
-	clear: both;
 }
 
 
@@ -68,6 +59,22 @@ th, td {
 	color: green;
 }
 
+#filemenu #editmenu #optionmenu {
+	position: relative;
+	display: inline-block;
+}
+
+#filedropdown #editdropdown #optiondropdown {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+}
+
+.show {
+	display: block;
+}
+
 
 #navigation {
 	background: black;
@@ -83,26 +90,10 @@ th, td {
 	color: grey;
 	background: #2a2a2a;
 	width: auto;
-	min-height: 860px;
+	min-height: 800px;
 	min-width: 1200px;
 	resize: none;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-::-webkit-scrollbar-track {
-	background-color: #b46868;
-}
-
-::-webkit-scrollbar-thumb {
-	background-color: #b46868;
-}
-
-::-webkit-scrollbar-button {
-	background-color: #b46868;
-}
-
-::-webkit-scrollbar-corner {
-	background-color: #b46868;
 }
