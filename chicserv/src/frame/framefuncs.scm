@@ -65,14 +65,16 @@
 (define (table-data #!key (id "") (class ""))
  (element "td" id: id class: class))
 
-(define (make-table header data)
+(define (make-table header data status)
  (let* ((table (table))
 	(row1 (element->add (table-row) (make-header-list header)))
-	(row2 (element->add (table-row) (make-data-list data))))
+	(row2 (element->add (table-row) (make-data-list data)))
+	(row3 (element->add (table-row) (make-data-list status))))
   (string-append
    (car table)
    row1
    row2
+   row3
    (cdr table))))
 
 (define (add-header content)
@@ -118,3 +120,33 @@
    "\">")
   "</button>"))
 
+(define (create-button-div #!key 
+	 (id "button") 
+	 (class "button") 
+	 (action "test()")
+	 (label "TEST"))
+ (string-append
+  (car (button 
+	id: id 
+	class: class 
+	onclick: action))
+  label
+  (cdr (button))))
+
+(define (create-dropdown-div #!key
+	 (id "dropdown")
+	 (content "test"))
+ (element->add
+  (div id: id)
+  content))
+
+(define (create-button-string #!key
+	 (id "test")
+	 (class "test")
+	 (content "content"))
+ (string-append
+  (car (button 
+	id: id 
+	class: class))
+  content
+  (cdr (button))))

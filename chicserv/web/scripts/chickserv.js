@@ -5,6 +5,12 @@ function filebuttonaction() {
 	document.getElementById("filedropdown").classList.toggle("show");
 }
 
+function editbuttonaction() {
+}
+
+function optionbuttonaction() {
+}
+
 window.onclick = function(event) {
 	if(!event.target.matches('.filebutton')) {
 		var dropdowns = document.getElementsByClassName("filedropdown");
@@ -16,4 +22,5 @@ window.onclick = function(event) {
 			}
 		}
 	}
+	// if event target matches the others...
 }

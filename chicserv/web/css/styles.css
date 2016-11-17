@@ -6,7 +6,7 @@
 
 body, button, textarea {
 	background-color: black;
-	font-size: 1.1em;
+	font-size: 1.0em;
 	line-height: 1.6;
 	font-weight: 400;
 	font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", 
@@ -42,6 +42,10 @@ th, td {
 	text-align: center;
 }
 
+.statusbar {
+	position: inline;
+}
+
 .button {
 	outline: none;
 	padding: 10px;
@@ -73,6 +77,7 @@ th, td {
 
 .show {
 	display: block;
+	background: white;
 }
 
 
@@ -91,7 +96,7 @@ th, td {
 	background: #2a2a2a;
 	width: auto;
 	min-height: 800px;
-	min-width: 1200px;
+	min-width: 1600px;
 	resize: none;
 	display: block;
 	margin-left: auto;
