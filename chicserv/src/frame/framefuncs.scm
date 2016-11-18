@@ -1,6 +1,3 @@
-(define (rlff) (load "src/frame/framefuncs.scm"))
-
-
 (define (doc)
  (cons
   (string-append
@@ -28,6 +25,16 @@
  (cons
   "<body>"
   "</body>"))
+
+(define (document #!key (title "Default"))
+ (cons
+  (string-append
+   (car (doc))
+   (header title: title)
+   (car (body)))
+  (string-append
+   (cdr (body))
+   (cdr (doc)))))
 
 (define (element name  #!key (id "default") (class "default"))
  (cons

@@ -1,7 +1,5 @@
 (load "src/frame/framefuncs.scm")
 
-(define (rlf) (load "src/frame/frames.scm"))
-
 (define editor-text-area 
  (text-area cols: "100" class: "textarea u-full-width"))
 
@@ -99,13 +97,9 @@
 		 (list navigation editorsec)
 		 (list (create-blank-div) status))))
   (string-append
-   (car (doc))
-   (header 
-    title: "Chicken Editor")
-   (car (body))
+   (car (document title: "Chicken Editor"))
    layout
-   (cdr (body))
-   (cdr (doc)))))
+   (cdr (document)))))
 
 
 

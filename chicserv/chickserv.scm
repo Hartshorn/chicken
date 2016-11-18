@@ -2,8 +2,7 @@
 
 (load "src/server/serverfuncs.scm")
 
-(define (rl) (load "src/server/serverfuncs.scm"))
-
+(define (rl) (load "chickserv.scm"))
 
 (define (handle continue)
  (useful-info)
@@ -17,7 +16,7 @@
    (continue)))))
 
 ;; change this for the environment
-(vhost-map `(("3.20.165.193" . ,handle)))
+(vhost-map `(("localhost" . ,handle)))
 
 ;; use this to compile and run
 ;;(start-server)
