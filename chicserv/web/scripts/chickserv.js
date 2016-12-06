@@ -24,3 +24,16 @@ window.onclick = function(event) {
 	}
 	// if event target matches the others...
 }
+
+function requestbuttonaction_GET() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("statusbar").innerHTML =
+				this.responseText;
+		}
+	};
+	xhttp.open("GET", "callback", true);
+	xhttp.send();
+}
+

@@ -5,6 +5,11 @@
   (send-response status: 'ok body: (editor))
   (print uri)))	
 
+(define (handle-callback uri)
+ (begin
+  (send-response status: 'ok body: (callback))
+  (print uri)))
+
 (define (useful-info)
  (begin
   (printf "Request from: ")

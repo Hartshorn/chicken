@@ -42,6 +42,19 @@
     id: "optiondropdown"
     content: "TEST!"))))
 
+(define (create-test-request-get)
+ (element->add
+  (div id: "xmlhttprequest")
+  (string-append
+   (create-button-div
+    id: "requestbutton"
+    class: "button"
+    action: "requestbuttonaction_GET()"
+    label: "Request-GET")
+   (create-dropdown-div
+    id: "editdropdown"
+    content: "REQUEST!"))))
+
 (define (create-blank-div)
  (div id: "statusbar" class: "blank"))
 
@@ -79,7 +92,8 @@
 		     (string-append 
 		      (create-file-menu) 
 		      (create-edit-menu) 
-		      (create-option-menu))))
+		      (create-option-menu)
+		      (create-test-request-get))))
 	(navigation (create-section
 		     id: "navigation" 
 		     class: "u-pull-right rightnav"
@@ -102,4 +116,5 @@
    (cdr (document)))))
 
 
-
+(define (callback)
+ (create-button-string))

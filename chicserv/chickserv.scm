@@ -10,13 +10,15 @@
 	(uri (request-uri req)))
   (if (equal? (uri-path uri) '(/ "editor"))
    (handle-editor uri)
-  (begin
-   (print "callback request from browser:")
-   (print uri)
-   (continue)))))
+   (if (equal? (uri-path uri) '(/ "callback"))
+    (handle-callback uri)
+    (begin
+     (print "callback request from browser:")
+     (print uri)
+     (continue))))))
 
 ;; change this for the environment
-(vhost-map `(("localhost" . ,handle)))
+(vhost-map `(("3.20.165.78" . ,handle)))
 
 ;; use this to compile and run
 ;;(start-server)
