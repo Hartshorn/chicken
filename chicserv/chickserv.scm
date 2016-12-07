@@ -18,7 +18,7 @@
      (continue))))))
 
 ;; change this for the environment
-(vhost-map `(("3.20.165.78" . ,handle)))
+(vhost-map `(("localhost" . ,handle)))
 
 ;; use this to compile and run
 ;;(start-server)

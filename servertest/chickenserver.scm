@@ -6,4 +6,4 @@
 
 (define c-server (foreign-lambda int "runserver" c-string int))
 
-(c-server "127.0.0.1" 8080)
+(c-server "localhost" 8000)

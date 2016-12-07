@@ -26,4 +26,3 @@
     (print "The fibonacci number " value " is " (fib value)))))
    (main))
 
-(main)
