@@ -118,3 +118,7 @@
 
 (define (callback)
  (create-button-string))
+
+
+(define (servmon)
+    (create-button-string))

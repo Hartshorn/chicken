@@ -36,12 +36,14 @@
    (cdr (body))
    (cdr (doc)))))
 
-(define (element name  #!key (id "default") (class "default"))
+(define (element name  #!key (data-key 0) (id "default") (class "default"))
  (cons
   (string-append
    "<"
    (->string name)
-   " id=\""
+   " data-key=\""
+   (->string data-key)
+   "\" id=\""
    (->string id)
    "\" class=\""
    (->string class)
@@ -57,8 +59,8 @@
   (->string content) 
   (cdr element)))
 
-(define (div #!key (id "") (class ""))
- (element "div" id: id class: class))
+(define (div #!key (data-key 0) (id "") (class ""))
+ (element "div" data-key: data-key id: id class: class))
 
 (define (table #!key (id "") (class ""))
  (element "table" id: id class: class))
